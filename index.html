@@ -29,10 +29,11 @@
 
 @import url(http://fonts.googleapis.com/css?family=Lato:100,200,300,400,500,600,700,900);
 body{
-    background: #fff;
+    background: #;
     font-family: 'Lato', Calibri, Arial, sans-serif;
     font-size: 14px;
     color: #656D78;
+
 }
 
 
@@ -345,7 +346,7 @@ HEADER
 h1.heading{
     font-size: 60px;
     font-weight: 700;
-    color: #fff;
+    color: #333;
     line-height: 100%;
 }
 
@@ -793,7 +794,7 @@ BEGIN PAGE
     -->
     <!-- END LOGO -->
 
-    <h1 class="heading text-center" id="ttd">Our Wesbite is Coming Soon</h1>
+    <h1 class="heading text-center" id="ttd">i am ruopu.wang</h1>
 
 
     <!-- BEGIN COUNTER -->
@@ -941,11 +942,54 @@ Placed at the end of the document so the pages load faster
             }
         });*/
 
+		/**
+	weixin
+	**/
+	var imgUrl = "http://7xnpq3.com1.z0.glb.clouddn.com/rphdImg_212340903398b82bf233c50154f0531d14545863518.jpg";  //图片LOGO注意必须是绝对路径
+       var lineLink = "http://ruopu.wang";   //网站网址，必须是绝对路径
+       var descContent = 'ruopu'; //分享给朋友或朋友圈时的文字简介
+       var shareTitle = "ruopu.wang has been "+dayNum+" days";  //分享title
+       var appid = ''; //apiID，可留空
+        
+       function shareFriend() {
+           WeixinJSBridge.invoke('sendAppMessage',{
+               "appid": appid,
+               "img_url": imgUrl,
+               "img_width": "200",
+               "img_height": "200",
+               "link": lineLink,
+               "desc": descContent,
+               "title": shareTitle
+           }, function(res) {
+               //_report('send_msg', res.err_msg);
+           })
+       }
+       function shareTimeline() {
+           WeixinJSBridge.invoke('shareTimeline',{
+               "img_url": imgUrl,
+               "img_width": "200",
+               "img_height": "200",
+               "link": lineLink,
+               "desc": descContent,
+               "title": shareTitle
+           }, function(res) {
+                  //_report('timeline', res.err_msg);
+           });
+       }
+       // 当微信内置浏览器完成内部初始化后会触发WeixinJSBridgeReady事件。
+       document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
+           // 发送给好友
+           WeixinJSBridge.on('menu:share:appmessage', function(argv){
+               shareFriend();
+           });
+           // 分享到朋友圈
+           WeixinJSBridge.on('menu:share:timeline', function(argv){
+               shareTimeline();
+           });
+       }, false);
+
     });
 
-
-
 </script>
-
 </body>
 </html>
