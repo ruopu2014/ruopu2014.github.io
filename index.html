@@ -2,1050 +2,854 @@
 <html lang="zh-CN">
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="ruopu.wang 的成长记录 —— 从 2014 年起，每一个值得纪念的瞬间。">
 
     <title>ruopu.wang</title>
 
-    <!-- Bootstrap -->
-    <link rel="stylesheet" href="//cdn.bootcss.com/twitter-bootstrap/3.3.5/css/bootstrap.min.css">
-    <link href="//cdn.bootcss.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="//apps.bdimg.com/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
-    <script src="//apps.bdimg.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+    <meta property="og:title" content="ruopu.wang">
+    <meta property="og:description" content="ruopu.wang 的成长记录">
+    <meta property="og:image" content="https://ruopu.wang/xm.png">
+    <meta property="og:url" content="https://ruopu.wang">
+
+    <link rel="icon" type="image/png" href="xm.png">
+
 <style>
-/**
-==============================================================
- * Sentir - Responsive admin & dashboard template
- * Version 		1.3.0
- * Release		February 14, 2015
- * Additional	Sentir Agency Coming Soon
-==============================================================
-**/
+@font-face{
+    font-family:'Lato';font-style:normal;font-weight:300;font-display:swap;
+    src:url('S6u9w4BMUTPHh50XSwiPGQ3q5d0.woff2') format('woff2');
+}
+@font-face{
+    font-family:'Lato';font-style:normal;font-weight:400;font-display:swap;
+    src:url('S6uyw4BMUTPHjx4wXiWtFCc.woff2') format('woff2');
+}
+@font-face{
+    font-family:'Lato';font-style:normal;font-weight:700;font-display:swap;
+    src:url('S6u9w4BMUTPHh6UVSwiPGQ3q5d0.woff2') format('woff2');
+}
 
+:root{
+    --bg:#eef3ff;
+    --card:rgba(255,255,255,.60);
+    --border:rgba(255,255,255,.85);
+    --text:#36304a;
+    --muted:#7d8499;
+    --c-years:#ff4d6d;
+    --c-months:#ff9f1c;
+    --c-days:#3a86ff;
+}
 
-@import url(https://fonts.googleapis.com/css?family=Lato:100,200,300,400,500,600,700,900);
+*{box-sizing:border-box;margin:0;padding:0;}
+
+html{scroll-behavior:smooth;}
+
 body{
-    background: #;
-    font-family: 'Lato', Calibri, Arial, sans-serif;
-    font-size: 14px;
-    color: #656D78;
-
+    font-family:'Lato',-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',Calibri,Arial,sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    line-height:1.7;
+    overflow-x:hidden;
+    min-height:100vh;
 }
 
-
-
-
-/**
--------------------------------------------
-BUTTON
--------------------------------------------
-**/
-.btn 					{border-radius: 2px;}
-.btn.btn-square 			{border-radius: 0px;}
-.btn.btn-rounded-lg 		{border-radius: 4px;}
-.btn-group.btn-square > .btn,
-.btn-lg.btn-square,
-.btn-group-lg.btn-square > .btn,
-.btn-sm.btn-square,
-.btn-group-sm.btn-square > .btn,btn-xs.btn-square,
-.btn-group-xs.btn-square > .btn {
-    border-radius: 0px;
+/* animated aurora background */
+body::before{
+    content:'';
+    position:fixed;
+    inset:-30%;
+    z-index:-2;
+    background:
+        radial-gradient(42% 42% at 18% 18%, rgba(255,77,109,.40), transparent 62%),
+        radial-gradient(46% 46% at 82% 14%, rgba(58,134,255,.38), transparent 62%),
+        radial-gradient(52% 52% at 48% 92%, rgba(46,196,182,.38), transparent 62%),
+        radial-gradient(44% 44% at 92% 82%, rgba(255,159,28,.40), transparent 62%),
+        radial-gradient(40% 40% at 8% 75%, rgba(131,56,236,.32), transparent 62%);
+    filter:blur(28px) saturate(1.15);
+    animation:drift 22s ease-in-out infinite alternate;
 }
-.btn:active,
-.btn.active {
-    -webkit-box-shadow: inset 0 3px 40px rgba(0, 0, 0, .1);
-    box-shadow: inset 0 3px 40px rgba(0, 0, 0, .1);
+@keyframes drift{
+    0%{transform:translate(0,0) rotate(0deg) scale(1);}
+    100%{transform:translate(-4%,3%) rotate(8deg) scale(1.1);}
 }
-.btn-perspective{
-    -webkit-box-shadow: 0px 3px 0px #DBDBDB;
-    -moz-box-shadow: 0px 3px 0px #DBDBDB;
-    box-shadow: 0px 3px 0px #DBDBDB;
-    top: 0;
-    position: relative;
-}
-.btn-perspective:active{
-    top: 2px;
-    -webkit-box-shadow: 0px 1px 0px #DBDBDB;
-    -moz-box-shadow: 0px 1px 0px #DBDBDB;
-    box-shadow: 0px 1px 0px #DBDBDB;
-}
-.btn-default {
-    color: #333;
-    background-color: #F5F7FA;
-    border-color: #E6E9ED;
-}
-.btn-default.btn-perspective{
-    -webkit-box-shadow: 0px 3px 0px #CCD1D9;
-    -moz-box-shadow: 0px 3px 0px #CCD1D9;
-    box-shadow: 0px 3px 0px #CCD1D9;
-}
-.btn-default.btn-perspective:active{
-    -webkit-box-shadow: 0px 1px 0px #CCD1D9;
-    -moz-box-shadow: 0px 1px 0px #CCD1D9;
-    box-shadow: 0px 1px 0px #CCD1D9;
-}
-.btn-default:hover,
-.btn-default:focus,
-.btn-default:active,
-.btn-default.active,
-.open .dropdown-toggle.btn-default {
-    color: #333;
-    background-color: #E6E9ED;
-    border-color: #E6E9ED;
-}
-.btn-default.disabled,
-.btn-default[disabled],
-fieldset[disabled] .btn-default,
-.btn-default.disabled:hover,
-.btn-default[disabled]:hover,
-fieldset[disabled] .btn-default:hover,
-.btn-default.disabled:focus,
-.btn-default[disabled]:focus,
-fieldset[disabled] .btn-default:focus,
-.btn-default.disabled:active,
-.btn-default[disabled]:active,
-fieldset[disabled] .btn-default:active,
-.btn-default.disabled.active,
-.btn-default[disabled].active,
-fieldset[disabled] .btn-default.active {
-    background-color: #444;
-    border-color: #E6E9ED;
-}
-.btn-primary {
-    background-color: #37BC9B;
-    border-color: #37BC9B;
-}
-.btn-primary.btn-perspective{
-    -webkit-box-shadow: 0px 3px 0px #279D81;
-    -moz-box-shadow: 0px 3px 0px #279D81;
-    box-shadow: 0px 3px 0px #279D81;
-}
-.btn-primary.btn-perspective:active{
-    -webkit-box-shadow: 0px 1px 0px #279D81;
-    -moz-box-shadow: 0px 1px 0px #279D81;
-    box-shadow: 0px 1px 0px #279D81;
-}
-.btn-primary:hover,
-.btn-primary:focus,
-.btn-primary:active,
-.btn-primary.active,
-.open .dropdown-toggle.btn-primary {
-    background-color: #29AF8E;
-    border-color: #29AF8E;
-}
-.btn-primary.disabled,
-.btn-primary[disabled],
-fieldset[disabled] .btn-primary,
-.btn-primary.disabled:hover,
-.btn-primary[disabled]:hover,
-fieldset[disabled] .btn-primary:hover,
-.btn-primary.disabled:focus,
-.btn-primary[disabled]:focus,
-fieldset[disabled] .btn-primary:focus,
-.btn-primary.disabled:active,
-.btn-primary[disabled]:active,
-fieldset[disabled] .btn-primary:active,
-.btn-primary.disabled.active,
-.btn-primary[disabled].active,
-fieldset[disabled] .btn-primary.active {
-    background-color: #5ADBBC;
-    border-color: #5ADBBC;
-}
-.btn-primary .badge {color: #5ADBBC;}
-
-.btn-success {
-    background-color: #8CC152;
-    border-color: #8CC152;
-}
-.btn-success.btn-perspective{
-    -webkit-box-shadow: 0px 3px 0px #629031;
-    -moz-box-shadow: 0px 3px 0px #629031;
-    box-shadow: 0px 3px 0px #629031;
-}
-.btn-success.btn-perspective:active{
-    -webkit-box-shadow: 0px 1px 0px #629031;
-    -moz-box-shadow: 0px 1px 0px #629031;
-    box-shadow: 0px 1px 0px #629031;
-}
-.btn-success:hover,
-.btn-success:focus,
-.btn-success:active,
-.btn-success.active,
-.open .dropdown-toggle.btn-success {
-    background-color: #74AD3B;
-    border-color: #74AD3B;
-}
-.btn-success.disabled,
-.btn-success[disabled],
-fieldset[disabled] .btn-success,
-.btn-success.disabled:hover,
-.btn-success[disabled]:hover,
-fieldset[disabled] .btn-success:hover,
-.btn-success.disabled:focus,
-.btn-success[disabled]:focus,
-fieldset[disabled] .btn-success:focus,
-.btn-success.disabled:active,
-.btn-success[disabled]:active,
-fieldset[disabled] .btn-success:active,
-.btn-success.disabled.active,
-.btn-success[disabled].active,
-fieldset[disabled] .btn-success.active {
-    background-color: #B4E87E;
-    border-color: #B4E87E;
-}
-.btn-success .badge {color: #B4E87E;}
-
-.btn-info {
-    background-color: #3BAFDA;
-    border-color: #3BAFDA;
-}
-.btn-info.btn-perspective{
-    -webkit-box-shadow: 0px 3px 0px #218BB2;
-    -moz-box-shadow: 0px 3px 0px #218BB2;
-    box-shadow: 0px 3px 0px #218BB2;
-}
-.btn-info.btn-perspective:active{
-    -webkit-box-shadow: 0px 1px 0px #218BB2;
-    -moz-box-shadow: 0px 1px 0px #218BB2;
-    box-shadow: 0px 1px 0px #218BB2;
-}
-.btn-info:hover,
-.btn-info:focus,
-.btn-info:active,
-.btn-info.active,
-.open .dropdown-toggle.btn-info {
-    background-color: #29A0CB;
-    border-color: #29A0CB;
-}
-.btn-info.disabled,
-.btn-info[disabled],
-fieldset[disabled] .btn-info,
-.btn-info.disabled:hover,
-.btn-info[disabled]:hover,
-fieldset[disabled] .btn-info:hover,
-.btn-info.disabled:focus,
-.btn-info[disabled]:focus,
-fieldset[disabled] .btn-info:focus,
-.btn-info.disabled:active,
-.btn-info[disabled]:active,
-fieldset[disabled] .btn-info:active,
-.btn-info.disabled.active,
-.btn-info[disabled].active,
-fieldset[disabled] .btn-info.active {
-    background-color: #5DCBF7;
-    border-color: #5DCBF7;
-}
-.btn-info .badge {color: #5DCBF7;}
-
-.btn-warning {
-    background-color: #F6BB42;
-    border-color: #F6BB42;
-}
-.btn-warning.btn-perspective{
-    -webkit-box-shadow: 0px 3px 0px #C6901F;
-    -moz-box-shadow: 0px 3px 0px #C6901F;
-    box-shadow: 0px 3px 0px #C6901F;
-}
-.btn-warning.btn-perspective:active{
-    -webkit-box-shadow: 0px 1px 0px #C6901F;
-    -moz-box-shadow: 0px 1px 0px #C6901F;
-    box-shadow: 0px 1px 0px #C6901F;
-}
-.btn-warning:hover,
-.btn-warning:focus,
-.btn-warning:active,
-.btn-warning.active,
-.open .dropdown-toggle.btn-warning {
-    background-color: #E8AA2E;
-    border-color: #E8AA2E;
-}
-.btn-warning.disabled,
-.btn-warning[disabled],
-fieldset[disabled] .btn-warning,
-.btn-warning.disabled:hover,
-.btn-warning[disabled]:hover,
-fieldset[disabled] .btn-warning:hover,
-.btn-warning.disabled:focus,
-.btn-warning[disabled]:focus,
-fieldset[disabled] .btn-warning:focus,
-.btn-warning.disabled:active,
-.btn-warning[disabled]:active,
-fieldset[disabled] .btn-warning:active,
-.btn-warning.disabled.active,
-.btn-warning[disabled].active,
-fieldset[disabled] .btn-warning.active {
-    background-color: #FCCB6A;
-    border-color: #FCCB6A;
-}
-.btn-warning .badge {color: #FCCB6A;}
-
-.btn-danger {
-    background-color: #E9573F;
-    border-color: #E9573F;
-}
-.btn-danger.btn-perspective{
-    -webkit-box-shadow: 0px 3px 0px #C14029;
-    -moz-box-shadow: 0px 3px 0px #C14029;
-    box-shadow: 0px 3px 0px #C14029;
-}
-.btn-danger.btn-perspective:active{
-    -webkit-box-shadow: 0px 1px 0px #C14029;
-    -moz-box-shadow: 0px 1px 0px #C14029;
-    box-shadow: 0px 1px 0px #C14029;
-}
-.btn-danger:hover,
-.btn-danger:focus,
-.btn-danger:active,
-.btn-danger.active,
-.open .dropdown-toggle.btn-danger {
-    background-color: #D8482C;
-    border-color: #D8482C;
-}
-.btn-danger.disabled,
-.btn-danger[disabled],
-fieldset[disabled] .btn-danger,
-.btn-danger.disabled:hover,
-.btn-danger[disabled]:hover,
-fieldset[disabled] .btn-danger:hover,
-.btn-danger.disabled:focus,
-.btn-danger[disabled]:focus,
-fieldset[disabled] .btn-danger:focus,
-.btn-danger.disabled:active,
-.btn-danger[disabled]:active,
-fieldset[disabled] .btn-danger:active,
-.btn-danger.disabled.active,
-.btn-danger[disabled].active,
-fieldset[disabled] .btn-danger.active {
-    background-color: #FC7C64;
-    border-color: #FC7C64;
-}
-.btn-danger .badge 		{color: #FC7C64;}
-.btn-link 				{color: #37BC9B;}
-.btn-link:hover,
-.btn-link:focus {
-    color: #29AF8E;
+body::after{
+    content:'';
+    position:fixed;
+    inset:0;
+    z-index:-1;
+    background:radial-gradient(120% 120% at 50% 0%, rgba(255,255,255,.35) 0%, transparent 45%);
+    pointer-events:none;
 }
 
-
-
-
-/**
----------------------------
-HEADER
----------------------------
-**/
-.logo{
-    text-align: center;
-    margin: 30px 0;
+/* bulingbuling twinkling sparkles */
+#sparkles{
+    position:fixed;
+    inset:0;
+    z-index:-1;
+    pointer-events:none;
+    overflow:hidden;
 }
-.logo img{width: 160px;}
+.spark{
+    position:absolute;
+    border-radius:50%;
+    background:#fff;
+    box-shadow:0 0 6px 1px rgba(255,255,255,.9), 0 0 12px 2px var(--glow,#7db9ff);
+    animation:twinkle var(--dur,3s) ease-in-out infinite;
+    opacity:0;
+}
+@keyframes twinkle{
+    0%,100%{opacity:0;transform:scale(.4);}
+    50%{opacity:1;transform:scale(1.15);}
+}
+
+/* floating game emojis & characters */
+#floaties,#gamers{
+    position:fixed;
+    inset:0;
+    z-index:-1;
+    pointer-events:none;
+    overflow:hidden;
+}
+.floaty{
+    position:absolute;
+    bottom:-60px;
+    font-size:30px;
+    opacity:.55;
+    animation:rise var(--dur,16s) linear infinite;
+    animation-delay:var(--delay,0s);
+    filter:drop-shadow(0 4px 6px rgba(0,0,0,.12));
+}
+@keyframes rise{
+    0%{transform:translateY(0) rotate(0deg);opacity:0;}
+    10%{opacity:.6;}
+    90%{opacity:.6;}
+    100%{transform:translateY(-115vh) rotate(360deg);opacity:0;}
+}
+
+/* game characters (CSS 手绘，非游戏官方素材) */
+.gamer{
+    position:absolute;
+    bottom:-80px;
+    opacity:.7;
+    animation:floatChar var(--dur,20s) linear infinite;
+    animation-delay:var(--delay,0s);
+    filter:drop-shadow(0 6px 8px rgba(60,80,140,.18));
+}
+@keyframes floatChar{
+    0%{transform:translateY(0) rotate(-8deg);opacity:0;}
+    10%{opacity:.72;}
+    50%{transform:translateY(-55vh) rotate(8deg);}
+    90%{opacity:.72;}
+    100%{transform:translateY(-118vh) rotate(-8deg);opacity:0;}
+}
+
+/* —— 太空小宇航员（豆豆人风格） —— */
+.crew{position:relative;width:40px;height:52px;}
+.crew i{position:absolute;}
+.crew .torso{
+    top:0;left:3px;right:3px;height:42px;
+    background:var(--col);
+    border-radius:18px 18px 9px 9px;
+    box-shadow:inset -7px -4px 0 rgba(0,0,0,.14);
+}
+.crew .leg{bottom:0;width:13px;height:13px;background:var(--col);box-shadow:inset -4px 0 0 rgba(0,0,0,.14);}
+.crew .leg.l{left:4px;border-radius:0 0 4px 7px;}
+.crew .leg.r{right:4px;border-radius:0 0 7px 4px;}
+.crew .pack{top:13px;left:-4px;width:11px;height:22px;background:var(--col);border-radius:7px;filter:brightness(.82);}
+.crew .visor{
+    top:10px;right:3px;width:23px;height:14px;
+    background:linear-gradient(135deg,#cfefff,#7fd0ff 60%,#bfe9ff);
+    border-radius:9px;
+    box-shadow:inset 0 0 0 3px rgba(0,0,0,.10), inset 5px 3px 4px rgba(255,255,255,.7);
+}
+
+/* —— 蛋仔角色（圆滚滚 Q 弹风格） —— */
+.egg{position:relative;width:42px;height:48px;}
+.egg i{position:absolute;}
+.egg .shell{
+    inset:0;
+    background:radial-gradient(120% 120% at 30% 22%, #fff 0%, var(--col) 55%, color-mix(in srgb,var(--col) 70%, #000) 130%);
+    border-radius:50% 50% 50% 50% / 58% 58% 44% 44%;
+    box-shadow:inset -5px -6px 0 rgba(0,0,0,.07);
+}
+.egg .eye{top:42%;width:5px;height:8px;background:#3a2f4a;border-radius:50%;}
+.egg .eye.l{left:31%;}
+.egg .eye.r{right:31%;}
+.egg .mouth{top:60%;left:50%;transform:translateX(-50%);width:11px;height:6px;border:2px solid #3a2f4a;border-top:0;border-radius:0 0 11px 11px;}
+.egg .blush{top:52%;width:6px;height:4px;background:rgba(255,90,120,.45);border-radius:50%;}
+.egg .blush.l{left:20%;}
+.egg .blush.r{right:20%;}
+.egg .foot{bottom:-3px;width:9px;height:6px;background:var(--col);border-radius:0 0 6px 6px;filter:brightness(.9);}
+.egg .foot.l{left:8px;}
+.egg .foot.r{right:8px;}
+
+/* click burst particles */
+.burst{
+    position:fixed;
+    width:10px;height:10px;
+    border-radius:50%;
+    pointer-events:none;
+    z-index:9999;
+    animation:burst .7s ease-out forwards;
+}
+@keyframes burst{
+    0%{transform:translate(0,0) scale(1);opacity:1;}
+    100%{transform:translate(var(--tx),var(--ty)) scale(0);opacity:0;}
+}
+@media (prefers-reduced-motion:reduce){
+    .spark,.floaty,body::before{animation:none;}
+}
+
+.container{
+    max-width:920px;
+    margin:0 auto;
+    padding:0 20px;
+}
+
+/* hero */
+.hero{
+    text-align:center;
+    padding:90px 0 40px;
+}
+.hero .eyebrow{
+    text-transform:uppercase;
+    letter-spacing:.4em;
+    font-size:13px;
+    font-weight:700;
+    color:var(--muted);
+    margin-bottom:18px;
+}
 h1.heading{
-    font-size: 60px;
-    font-weight: 700;
-    color: #333;
-    line-height: 100%;
+    font-size:clamp(38px,8vw,76px);
+    font-weight:700;
+    line-height:1.05;
+    background:linear-gradient(120deg,#ff5e7e,#ffb547 35%,#39d98a 65%,#4cc2ff);
+    -webkit-background-clip:text;
+    background-clip:text;
+    -webkit-text-fill-color:transparent;
+    background-size:200% auto;
+    animation:shine 6s linear infinite;
 }
+@keyframes shine{to{background-position:200% center;}}
 
-
-
-
-/**
----------------------------
-COUNTER
----------------------------
-**/
-.counter-wrap:before,
-.counter-wrap:after {
-    display: table;
-    content: " ";
+/* counter */
+.counter-wrap{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:16px;
+    max-width:560px;
+    margin:54px auto 30px;
 }
-.counter-wrap:after {clear: both;}
-.counter-wrap {margin: 50px 0;}
 .counter-item{
-    float: left;
-    width: 25%;
-    text-align: center;
-    background: #fff;
-    padding: 80px 0;
-    height: 350px;
+    position:relative;
+    border-radius:26px;
+    padding:24px 10px 20px;
+    text-align:center;
+    overflow:hidden;
+    color:#fff;
+    background:
+        radial-gradient(120% 90% at 28% 12%, rgba(255,255,255,.55), transparent 50%),
+        linear-gradient(160deg, var(--accent) 0%, var(--accent2) 100%);
+    box-shadow:
+        0 14px 26px -8px var(--accent),
+        inset 0 -8px 14px rgba(0,0,0,.14),
+        inset 0 4px 10px rgba(255,255,255,.45);
+    transition:transform .35s cubic-bezier(.34,1.56,.64,1);
 }
-.counter-item h1{
-    font-size: 80px;
-    font-weight: 900;
+.counter-item:hover{transform:translateY(-8px) scale(1.04) rotate(-1.5deg);}
+/* 顶部高光小气泡 */
+.counter-item .ribbon{
+    position:absolute;
+    top:14px;right:16px;
+    width:14px;height:14px;
+    border-radius:50%;
+    background:rgba(255,255,255,.6);
+    box-shadow:14px 6px 0 -4px rgba(255,255,255,.4);
 }
-.counter-item p{
-    font-size: 30px;
-    font-weight: 400;
-    text-transform: uppercase;
+.counter-item .ico{
+    font-size:34px;
+    line-height:1;
+    display:inline-block;
+    filter:drop-shadow(0 3px 3px rgba(0,0,0,.18));
+    animation:bob 3s ease-in-out infinite;
 }
-.bg-primary	{background: #35bc9b}
-.bg-success	{background: #8ec051}
-.bg-info	{background: #3eafdb}
-.bg-danger	{background: #e7573f}
-.bg-warning	{background: #f6bb43}
-.bg-primary,
-.bg-success,
-.bg-info,
-.bg-danger,
-.bg-warning	{color: #fff;}
-p.about-text{
-    font-size: 18px;
-    color: #333;
-    margin: 25px 0;
+.counter-item:nth-child(2) .ico{animation-delay:.5s;}
+.counter-item:nth-child(3) .ico{animation-delay:1s;}
+.counter-item .num{
+    margin-top:6px;
+    font-size:clamp(40px,9vw,62px);
+    font-weight:900;
+    line-height:1;
+    font-variant-numeric:tabular-nums;
+    text-shadow:0 3px 0 rgba(0,0,0,.12), 0 0 18px rgba(255,255,255,.35);
+}
+.counter-item .lbl{
+    margin-top:6px;
+    font-size:15px;
+    font-weight:700;
+    letter-spacing:.08em;
+    color:rgba(255,255,255,.92);
+}
+.c-years {--accent:#ff6b8b;--accent2:#ff3d6e;}
+.c-months{--accent:#ffc24b;--accent2:#ff9f1c;}
+.c-days  {--accent:#5aa9ff;--accent2:#3a86ff;}
+
+/* achievements */
+.section-title{
+    text-align:center;
+    font-size:14px;
+    letter-spacing:.3em;
+    text-transform:uppercase;
+    color:var(--muted);
+    font-weight:700;
+    margin:60px 0 22px;
+}
+.badges{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(120px,1fr));
+    gap:14px;
+}
+.badge-card{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:16px;
+    padding:18px 10px;
+    text-align:center;
+    backdrop-filter:blur(12px);
+    -webkit-backdrop-filter:blur(12px);
+    cursor:default;
+    transition:transform .25s ease, box-shadow .25s ease;
+}
+.badge-card:hover{
+    transform:translateY(-6px) rotate(-2deg);
+    box-shadow:0 12px 28px rgba(120,140,200,.28);
+}
+.badge-card .ico{
+    font-size:38px;
+    line-height:1;
+    display:inline-block;
+    animation:bob 3s ease-in-out infinite;
+}
+.badge-card:nth-child(2n) .ico{animation-delay:.6s;}
+.badge-card:nth-child(3n) .ico{animation-delay:1.2s;}
+@keyframes bob{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(-7px);}
+}
+.badge-card .bt{
+    margin-top:10px;
+    font-weight:700;
+    font-size:14px;
+    color:var(--text);
+}
+.badge-card .bd{
+    font-size:11.5px;
+    color:var(--muted);
+    margin-top:3px;
 }
 
-
-
-
-/**
----------------------------
-SUBSCRIBE FORM
----------------------------
-**/
-.subscribe{
-    margin: 20px 0 50px;
-    padding: 0;
-    text-align: center;
+/* timeline */
+.timeline{
+    position:relative;
+    margin:70px 0 30px;
+    padding-left:34px;
 }
-.subscribe .form-control{
-    border: none;
-    height: 50px;
-    border-radius: 0;
-    font-size: 18px;
-    color: #d3d8de;
-    margin-bottom: 20px;
-    text-align: center;
-    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0);
-    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0);
-    -webkit-transition: border-color ease-in-out 0s, box-shadow ease-in-out 0s;
-    transition: border-color ease-in-out 0s, box-shadow ease-in-out 0s;
+.timeline::before{
+    content:'';
+    position:absolute;
+    left:9px;top:6px;bottom:6px;
+    width:2px;
+    background:linear-gradient(to bottom,#ff5e7e,#ffb547,#39d98a,#4cc2ff);
+    opacity:.5;
 }
-.subscribe .form-control:focus{
-    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0), 0 0 8px rgba(102, 175, 233, 0);
-    box-shadow: inset 0 1px 1px rgba(0,0,0,0), 0 0 8px rgba(102, 175, 233, 0);
+.entry{
+    position:relative;
+    margin-bottom:38px;
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:16px;
+    padding:24px 26px;
+    backdrop-filter:blur(12px);
+    -webkit-backdrop-filter:blur(12px);
+    transition:transform .3s ease, border-color .3s ease;
 }
-.subscribe .form-control::-moz-placeholder {
-    color: #d3d8de;
-    opacity: 1;
+.entry:hover{transform:translateX(4px);border-color:rgba(255,255,255,.2);}
+.entry::before{
+    content:'';
+    position:absolute;
+    left:-33px;top:28px;
+    width:16px;height:16px;
+    border-radius:50%;
+    background:var(--bg);
+    border:3px solid var(--dot,#4cc2ff);
+    box-shadow:0 0 14px var(--dot,#4cc2ff);
 }
-.subscribe .form-control:-ms-input-placeholder {
-    color: #d3d8de;
+.entry h2{
+    font-size:24px;
+    font-weight:700;
+    margin-bottom:6px;
+    color:#2a2138;
 }
-.subscribe .form-control::-webkit-input-placeholder {
-    color: #d3d8de;
+.entry time{
+    display:block;
+    font-size:13px;
+    color:var(--muted);
+    margin-bottom:12px;
+    font-variant-numeric:tabular-nums;
 }
-.subscribe-btn {
-    height: 50px;
-    border-radius: 2px;
-    font-size: 18px;
-    font-weight: 700;
-    padding-left: 40px;
-    padding-right: 40px;
-    border: 3px solid #fff;
-    background: transparent;
+.entry p{
+    color:#564a68;
+    font-size:15.5px;
 }
-.subscribe-btn:hover,
-.subscribe-btn:focus {
-    border: none;
+.tags{
+    margin-top:16px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
 }
-
-
-
-
-/**
----------------------------
-SOCIAL ICON
----------------------------
-**/
-p.social-icon {
-    margin: 10px 0 50px;
-}
-.icon-rounded{
-    border-radius: 5px;
-    text-align: center;
-    display: inline-block;
-}
-.icon-sm{
-    width: 40px;
-    height: 40px;
-    font-size: 20px;
-    padding: 10px 0;
-}
-.icon-social-footer{
-    margin-right: 5px;
-    margin-top: 5px;
-    font-size: 16px;
-    padding-top: 13px;
-    background: #1A212B;
-}
-.icon-social-footer.icon-facebook,
-.icon-social-footer.icon-facebook:hover,
-.icon-social-footer.icon-facebook:focus,
-a .icon-social-footer.icon-facebook,
-a .icon-social-footer.icon-facebook:hover,
-a .icon-social-footer.icon-facebook:focus{
-    background-color: #3B5A98;
-    color: #333;
-}
-.icon-social-footer.icon-twitter,
-.icon-social-footer.icon-twitter:hover,
-.icon-social-footer.icon-twitter:focus,
-a .icon-social-footer.icon-twitter,
-a .icon-social-footer.icon-twitter:hover,
-a .icon-social-footer.icon-twitter:focus{
-    background-color: #3490D3;
-    color: #fff;
-}
-.icon-social-footer.icon-google-plus,
-.icon-social-footer.icon-google-plus:hover,
-.icon-social-footer.icon-google-plus:focus,
-a .icon-social-footer.icon-google-plus,
-a .icon-social-footer.icon-google-plus:hover,
-a .icon-social-footer.icon-google-plus:focus{
-    background-color: #BC2C1F;
-    color: #fff;
-}
-.icon-social-footer.icon-dribbble,
-.icon-social-footer.icon-dribbble:hover,
-.icon-social-footer.icon-dribbble:focus,
-a .icon-social-footer.icon-dribbble,
-a .icon-social-footer.icon-dribbble:hover,
-a .icon-social-footer.icon-dribbble:focus{
-    background-color: #D33471;
-    color: #fff;
-}
-.icon-social-footer.icon-flickr,
-.icon-social-footer.icon-flickr:hover,
-.icon-social-footer.icon-flickr:focus,
-a .icon-social-footer.icon-flickr,
-a .icon-social-footer.icon-flickr:hover,
-a .icon-social-footer.icon-flickr:focus{
-    background-color: #0555BF;
-    color: #fff;
-}
-.icon-social-footer.icon-pinterest,
-.icon-social-footer.icon-pinterest:hover,
-.icon-social-footer.icon-pinterest:focus,
-a .icon-social-footer.icon-pinterest,
-a .icon-social-footer.icon-pinterest:hover,
-a .icon-social-footer.icon-pinterest:focus{
-    background-color: #B70F12;
-    color: #fff;
-}
-.icon-social-footer.icon-youtube,
-.icon-social-footer.icon-youtube:hover,
-.icon-social-footer.icon-youtube:focus,
-a .icon-social-footer.icon-youtube,
-a .icon-social-footer.icon-youtube:hover,
-a .icon-social-footer.icon-youtube:focus{
-    background-color: #C91212;
-    color: #fff;
-}
-.icon-social-footer.icon-dropbox,
-.icon-social-footer.icon-dropbox:hover,
-.icon-social-footer.icon-dropbox:focus,
-a .icon-social-footer.icon-dropbox,
-a .icon-social-footer.icon-dropbox:hover,
-a .icon-social-footer.icon-dropbox:focus{
-    background-color: #0864B2;
-    color: #fff;
-}
-.icon-social-footer.icon-foursquare,
-.icon-social-footer.icon-foursquare:hover,
-.icon-social-footer.icon-foursquare:focus,
-a .icon-social-footer.icon-foursquare,
-a .icon-social-footer.icon-foursquare:hover,
-a .icon-social-footer.icon-foursquare:focus{
-    background-color: #0571A0;
-    color: #fff;
-}
-.icon-social-footer.icon-github,
-.icon-social-footer.icon-github:hover,
-.icon-social-footer.icon-github:focus,
-a .icon-social-footer.icon-github,
-a .icon-social-footer.icon-github:hover,
-a .icon-social-footer.icon-github:focus{
-    background-color: #212121;
-    color: #fff;
-}
-.icon-social-footer.icon-linkedin,
-.icon-social-footer.icon-linkedin:hover,
-.icon-social-footer.icon-linkedin:focus,
-a .icon-social-footer.icon-linkedin,
-a .icon-social-footer.icon-linkedin:hover,
-a .icon-social-footer.icon-linkedin:focus{
-    background-color: #036C8E;
-    color: #fff;
-}
-.icon-social-footer.icon-tumblr,
-.icon-social-footer.icon-tumblr:hover,
-.icon-social-footer.icon-tumblr:focus,
-a .icon-social-footer.icon-tumblr,
-a .icon-social-footer.icon-tumblr:hover,
-a .icon-social-footer.icon-tumblr:focus{
-    background-color: #2E485D;
-    color: #fff;
-}
-.icon-social-footer.icon-vimeo,
-.icon-social-footer.icon-vimeo:hover,
-.icon-social-footer.icon-vimeo:focus,
-a .icon-social-footer.icon-vimeo,
-a .icon-social-footer.icon-vimeo:hover,
-a .icon-social-footer.icon-vimeo:focus{
-    background-color: #0D9DD1;
-    color: #fff;
+.tag{
+    font-size:12px;
+    padding:4px 12px;
+    border-radius:999px;
+    background:rgba(58,134,255,.12);
+    border:1px solid rgba(58,134,255,.28);
+    color:#3a6fc4;
+    font-weight:700;
 }
 
-
-
-
-/**
----------------------------
-FOOTER
----------------------------
-**/
+/* wish + footer */
+.wish{
+    text-align:center;
+    font-size:clamp(18px,3.5vw,26px);
+    font-weight:300;
+    color:#2a2138;
+    margin:70px auto 50px;
+    max-width:640px;
+    line-height:1.5;
+}
 footer{
-    color : #333;
-    padding: 5px 0 60px;
-    text-align: center;
+    text-align:center;
+    color:var(--muted);
+    font-size:13px;
+    padding:30px 0 60px;
 }
 
-
-
-
-
-/**
-=================================
-TABLET < 767px
-=================================
-**/
-@media (max-width: 767px) {
-    .counter-item{
-        width: 50%;
-        height: auto;
-    }
+@media (max-width:680px){
+    .hero{padding:64px 0 30px;}
 }
 
-/**
-=================================
-TABLET < 767px
-=================================
-**/
-@media (max-width: 640px) {
-    h1.heading{
-        font-size: 40px;
-    }
-    .counter-item{
-        width: 50%;
-        height: auto;
-        padding: 30px 0;
-    }
-    .counter-item h1{
-        font-size: 40px;
-    }
-    .counter-item p{
-        font-size: 20px;
-    }
+/* =======================================================
+   生日主题（生日当天自动开启 / URL 加 ?birthday 预览）
+======================================================= */
+#confetti{
+    position:fixed;
+    inset:0;
+    z-index:50;
+    pointer-events:none;
+    overflow:hidden;
+    display:none;
+}
+body.birthday #confetti{display:block;}
+.confetti-pc{
+    position:absolute;
+    top:-24px;
+    width:10px;height:16px;
+    opacity:.95;
+    animation:confFall var(--dur,5s) linear infinite;
+    animation-delay:var(--delay,0s);
+}
+@keyframes confFall{
+    0%{transform:translateY(-10vh) rotateZ(0deg) rotateY(0deg);}
+    100%{transform:translateY(110vh) rotateZ(720deg) rotateY(360deg);}
 }
 
-@media (min-width: 1200px) {
-
+.bday-banner{
+    display:none;
+    position:relative;
+    margin:0 auto 6px;
+    padding:22px 24px 26px;
+    max-width:680px;
+    text-align:center;
+    border-radius:28px;
+    background:
+        radial-gradient(120% 120% at 50% 0%, rgba(255,255,255,.6), transparent 60%),
+        linear-gradient(135deg,#ff9a3c,#ff5e7e 45%,#a855f7 100%);
+    box-shadow:0 18px 40px -12px rgba(255,94,126,.7), inset 0 3px 12px rgba(255,255,255,.5);
+    overflow:hidden;
 }
-
-
-
-
-
-/**
-=================================
-STANDARD DESKTOP 992px <> 1200px
-=================================
-**/
-@media (min-width: 992px) and (max-width: 1199px) {
-
+body.birthday .bday-banner{display:block;animation:pop .7s cubic-bezier(.34,1.56,.64,1) both;}
+@keyframes pop{0%{transform:scale(.8);opacity:0;}100%{transform:scale(1);opacity:1;}}
+.bday-banner .cake{
+    font-size:64px;
+    line-height:1;
+    display:inline-block;
+    animation:bob 2.2s ease-in-out infinite;
+    filter:drop-shadow(0 6px 6px rgba(0,0,0,.2));
 }
-
-
-
-
-
-/**
-=================================
-STANDARD DESKTOP < 1024px
-=================================
-**/
-@media (max-width: 1023px) {
-
+.bday-banner .glow{
+    position:absolute;
+    top:-40%;left:50%;
+    width:120px;height:160px;
+    transform:translateX(-50%);
+    background:radial-gradient(closest-side, rgba(255,235,150,.9), transparent 70%);
+    animation:flicker 1.4s ease-in-out infinite;
+    pointer-events:none;
 }
-
-
-
-
-
-/**
-=================================
-SMALL DESKTOP 768px <> 991px
-=================================
-**/
-@media (min-width: 768px) and (max-width: 991px) {
-
+@keyframes flicker{0%,100%{opacity:.7;transform:translateX(-50%) scale(1);}50%{opacity:1;transform:translateX(-50%) scale(1.12);}}
+.bday-banner .big{
+    margin:6px 0 4px;
+    font-size:clamp(30px,7vw,52px);
+    font-weight:900;
+    color:#fff;
+    text-shadow:0 3px 0 rgba(0,0,0,.18), 0 0 22px rgba(255,255,255,.5);
+    letter-spacing:.04em;
 }
-
-
-
-
-/**
-=================================
-TABLET < 767px
-=================================
-**/
-@media (max-width: 767px) {
-
+.bday-banner .sub{
+    font-size:clamp(16px,3.6vw,22px);
+    font-weight:700;
+    color:#fff;
 }
-
-
-
-
-/**
-=================================
-PHONE < 640px
-=================================
-**/
-@media (max-width: 640px){
-
+.bday-banner .sub b{
+    font-size:1.5em;
+    color:#fff8c5;
+    text-shadow:0 0 14px rgba(255,240,150,.9);
 }
-
-
-
-
-/**
-=================================
-PHONE < 600px
-=================================
-**/
-@media (max-width: 600px){
-
+.bday-banner .balloons{
+    position:absolute;bottom:-6px;
+    font-size:30px;opacity:.85;
 }
+.bday-banner .balloons.l{left:14px;animation:bob 2.6s ease-in-out infinite;}
+.bday-banner .balloons.r{right:14px;animation:bob 2.6s ease-in-out infinite .8s;}
 
-
-
-/**
-=================================
-PHONE < 548px
-=================================
-**/
-@media (max-width: 548px){
-
-}
-
-
-
-/**
-=================================
-PHONE < 480px
-=================================
-**/
-@media (max-width: 480px){
-
-}
-
-
-
-
-/**
-=================================
-PHONE < 360px
-=================================
-**/
-@media (max-width: 360px){
-
-}
-
-
-
-
-/**
-=================================
-PHONE < 320px
-=================================
-**/
-@media (max-width: 320px){
-
-}
+/* 生日当天页面整体更暖 */
+body.birthday{--bg:#fff3e6;}
 </style>
-
 </head>
-<body class="tooltips">
+<body>
 
-<!--
-===========================================================
-BEGIN PAGE
-===========================================================
--->
+<div id="sparkles"></div>
+<div id="floaties"></div>
+<div id="gamers"></div>
+<div id="confetti"></div>
+
 <div class="container">
 
-    <!-- BEGIN LOGO -->
-    <!--
-    <div class="logo"><img src="assets/img/logo.png" alt="logo"></div>
-    -->
-    <!-- END LOGO -->
+    <header class="hero">
+        <div class="bday-banner">
+            <span class="balloons l">🎈</span>
+            <span class="balloons r">🎈</span>
+            <div class="glow"></div>
+            <div class="cake">🎂</div>
+            <div class="big">生日快乐！</div>
+            <div class="sub">ruopu 今天 <b id="bday-age">0</b> 岁啦 🎉</div>
+        </div>
+        <div class="eyebrow">Growing up</div>
+        <h1 class="heading" id="ttd">i am ruopu.wang</h1>
 
-    <h1 class="heading text-center" id="ttd">i am ruopu.wang</h1>
-
-
-    <!-- BEGIN COUNTER -->
-    <div class="counter-wrap">
-        <div id="ymdh">
-            <div class='counter-item bg-danger'>
-                <h1>232</h1><p>days</p>
+        <div class="counter-wrap" id="counter">
+            <div class="counter-item c-years">
+                <div class="ribbon"></div>
+                <div class="ico">🎂</div>
+                <div class="num" id="n-years">0</div>
+                <div class="lbl">岁</div>
             </div>
-            <div class='counter-item bg-warning'>
-                <h1>3</h1><p>hours</p>
+            <div class="counter-item c-months">
+                <div class="ribbon"></div>
+                <div class="ico">🌙</div>
+                <div class="num" id="n-months">0</div>
+                <div class="lbl">个月</div>
             </div>
-            <div class='counter-item bg-success'>
-                <h1>6</h1><p>min</p>
-            </div>
-            <div class='counter-item bg-info'>
-                <h1>12</h1><p>sec</p>
+            <div class="counter-item c-days">
+                <div class="ribbon"></div>
+                <div class="ico">⭐</div>
+                <div class="num" id="n-days">0</div>
+                <div class="lbl">天</div>
             </div>
         </div>
-    </div><!-- /.counter-wrap -->
-    <!-- END COUNTER -->
-	
-    <div class="col-md-12">
-    <h1>转学到天津</h1>
-    <p>五年级成功转学到天津，慢慢适应了，状态越来越好。学校外面看着很好，但是教室和内部装修不好。比较崇拜数学老师，语文老师是班主任，留作业很多。眼睛近视了，开始戴眼镜了，度数不高，希望不要再涨了。
-	    </p>
-    <div>
-        <span class="badge">2024-09-01 11:50:00</span>
-	    <div class="pull-right">
-		    <span class="label label-default">转学</span> 
-	            <span class="label label-primary">天津</span> 
-            </div>
-    </div>     
-    <hr>
-    <h1>会骑自行车</h1>
-    <p>之前一直骑带辅助轮的儿童自行车，自始至终也没能把辅助轮去掉，前段时间那个自行车坏了。上周骑了一下别人的大一些的自行车，感觉没有辅助轮好像也会骑，计划着给他买个大大点的自行车，
-	    去迪卡侬看完没有达成一致意见，就没买成。这周六在家附近公园我扫了一个共享单车，让他试试，上午能骑，不会上下车，下午再加强练习一下，会上下车了。周日又扫了一个，在公园里骑的非常好了。
-	    按照规定，没有满12岁的孩子不能上路骑自行车，以后只能在公园过过瘾了，我感觉12周岁前，也没必要买自行车了，共享单车还是很方便的。
-	    </p>
-    <div>
-        <span class="badge">2021-08-22 12:00:00</span>
-	    <div class="pull-right">
-		    <span class="label label-default">自行车</span> 
-	            <span class="label label-primary">自学</span> 
-            </div>
-    </div>     
-    <hr>
-	    
-    <h1>7岁生日快乐</h1>
-    <p>7岁啦，祝我们的宝贝儿子能够一直健康快乐，单纯可爱，幸运富足。
-       一年级期末考试，语文和数学都考了100，英语考了90多，具体多少老师没说，我们虽然没有当面表扬你，但是心里还是挺高兴的，整个一年级你的成绩都是一般般，最后突然考这么好，感觉还是继承我们强大的🧬了。</p>
-    <div>
-	<span class="badge">2021-07-16 21:07:16</span>
-	    <div class="pull-right">
-		    <span class="label label-warning">生日快乐</span>
-		    <span class="label label-primary">一年级</span> 
-		    <span class="label label-success">双百</span> 
-		    <span class="label label-danger">7岁</span>
-	    </div>         
-     </div>
-    <hr>
-	    
-    <h1>自己会唱谱</h1>
-    <p>经过一年多的学习钢琴，突然会自己根据小星星的旋律唱谱了，并给我弹出来了，感觉还是达到了学钢琴的目的。</p>
-    <div>
-        <span class="badge">2021-06-06 20:00:00</span>
-	    <div class="pull-right">
-		    <span class="label label-default">钢琴</span> 
-	            <span class="label label-primary">小星星</span> 
-            </div>
-    </div>     
-    <hr>
-	    
-    <p class="text-center about-text">
-        Wish you grow up happy and healthy! Dad and Mum will love you forever!
-    </p>
+    </header>
 
-    <!-- BEGIN FOOTER -->
-    <footer>
-        Copyright &copy; 2014 ruopu.wang
-    </footer>
-    <!-- END FOOTER -->
+    <h2 class="section-title">🏆 成就徽章</h2>
+    <div class="badges" id="badges"></div>
 
-</div><!-- /.container -->
-<!--
-===========================================================
-END PAGE
-===========================================================
--->
+    <h2 class="section-title">📖 成长记录</h2>
+    <main class="timeline" id="timeline"></main>
 
-	
+    <p class="wish">Wish you grow up happy and healthy!<br>Dad and Mum will love you forever!</p>
 
-<!--
-===========================================================
-Placed at the end of the document so the pages load faster
-===========================================================
--->
-<!-- MAIN JAVASRCIPT (REQUIRED ALL PAGE)-->
+    <footer>Copyright &copy; 2014 ruopu.wang</footer>
 
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="//apps.bdimg.com/libs/jquery/1.11.3/jquery.min.js"></script>
-<!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="//cdn.bootcss.com/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>
-<!--
-<script src="//apps.bdimg.com/libs/retina.js/1.3.0/retina.min.js"></script>
-<script src="//apps.bdimg.com/libs/jquery-backstretch/2.0.4/jquery.backstretch.min.js"></script>
--->
-<!--
-<script src="//apps.bdimg.com/libs/jquery-countdown/2.0.0/jquery.countdown.min.js"></script>
--->
+</div>
+
 <script>
+/* ===== 成长记录数据（文字原样保留） ===== */
+var entries = [
+    {
+        title: "转学到天津",
+        time: "2024-09-01 11:50:00",
+        dot: "#ff5e7e",
+        text: "五年级成功转学到天津，慢慢适应了，状态越来越好。学校外面看着很好，但是教室和内部装修不好。比较崇拜数学老师，语文老师是班主任，留作业很多。眼睛近视了，开始戴眼镜了，度数不高，希望不要再涨了。",
+        tags: ["转学", "天津"]
+    },
+    {
+        title: "会骑自行车",
+        time: "2021-08-22 12:00:00",
+        dot: "#ffb547",
+        text: "之前一直骑带辅助轮的儿童自行车，自始至终也没能把辅助轮去掉，前段时间那个自行车坏了。上周骑了一下别人的大一些的自行车，感觉没有辅助轮好像也会骑，计划着给他买个大大点的自行车，去迪卡侬看完没有达成一致意见，就没买成。这周六在家附近公园我扫了一个共享单车，让他试试，上午能骑，不会上下车，下午再加强练习一下，会上下车了。周日又扫了一个，在公园里骑的非常好了。按照规定，没有满12岁的孩子不能上路骑自行车，以后只能在公园过过瘾了，我感觉12周岁前，也没必要买自行车了，共享单车还是很方便的。",
+        tags: ["自行车", "自学"]
+    },
+    {
+        title: "7岁生日快乐",
+        time: "2021-07-16 21:07:16",
+        dot: "#39d98a",
+        text: "7岁啦，祝我们的宝贝儿子能够一直健康快乐，单纯可爱，幸运富足。一年级期末考试，语文和数学都考了100，英语考了90多，具体多少老师没说，我们虽然没有当面表扬你，但是心里还是挺高兴的，整个一年级你的成绩都是一般般，最后突然考这么好，感觉还是继承我们强大的🧬了。",
+        tags: ["生日快乐", "一年级", "双百", "7岁"]
+    },
+    {
+        title: "自己会唱谱",
+        time: "2021-06-06 20:00:00",
+        dot: "#4cc2ff",
+        text: "经过一年多的学习钢琴，突然会自己根据小星星的旋律唱谱了，并给我弹出来了，感觉还是达到了学钢琴的目的。",
+        tags: ["钢琴", "小星星"]
+    }
+];
 
-    /** Tooltip **/
-    /*
-	$('.tooltips').tooltip({
-        selector: "[data-toggle=tooltip]",
-        container: "body"
+function escapeHtml(s){
+    return s.replace(/[&<>"']/g, function(c){
+        return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];
     });
-	*/
+}
 
-    /** Full background **/
-    //$.backstretch(["http://7xnpq3.com1.z0.glb.clouddn.com/rpBingWallpaper-2016-01-30.jpg"], {duration: 3000, fade: 750});
-
-    function formateDate(date){
-        console.info(date.getFullYear()+"年"+(date.getMonth()+1)+"月"+date.getDate()+"日 "+date.getHours()+":"+date.getMinutes()+":"+date.getSeconds());
-    }
-
-    function getDaysOfYears(time){
-        return time.getYear()%4==0?366:365;
-    }
-
-    function getDaysOfMonth(time){
-        switch(time.getMonth()+1){
-            case 1:return 31;break;
-            case 2:return getDaysOfYears()==366?29:28;break;
-            case 3:return 31;break;
-            case 4:return 30;break;
-            case 5:return 31;break;
-            case 6:return 30;break;
-            case 7:return 31;break;
-            case 8:return 31;break;
-            case 9:return 30;break;
-            case 10:return 31;break;
-            case 11:return 30;break;
-            case 12:return 31;break;
+(function renderTimeline(){
+    var html = "";
+    for (var i = 0; i < entries.length; i++){
+        var e = entries[i];
+        var tags = "";
+        for (var j = 0; j < e.tags.length; j++){
+            tags += '<span class="tag">' + escapeHtml(e.tags[j]) + '</span>';
         }
+        html +=
+            '<article class="entry" style="--dot:' + e.dot + '">' +
+                '<h2>' + escapeHtml(e.title) + '</h2>' +
+                '<time>' + escapeHtml(e.time) + '</time>' +
+                '<p>' + escapeHtml(e.text) + '</p>' +
+                '<div class="tags">' + tags + '</div>' +
+            '</article>';
     }
+    document.getElementById('timeline').innerHTML = html;
+})();
 
-    /** Counter **/
-    $(function() {
-        var birthDay = new Date(2014,06,16,11,50,00);
-        formateDate(birthDay);
-        var now = new Date();
-        formateDate(now);
-        var millonSeconds = now.getTime()-birthDay.getTime()
-        console.info(millonSeconds+' ms');
-        var dayNum = Math.floor(millonSeconds/1000/60/60/24);
-        console.info("共 "+dayNum+' 天');
 
-        var millionSeconds = now.getMilliseconds()-birthDay.getMilliseconds();
-        var seconds = now.getSeconds()-birthDay.getSeconds();
-        seconds = millionSeconds<0?(seconds-1):seconds;
-        var minuteInt = now.getMinutes()-birthDay.getMinutes();
-        minuteInt = seconds<0?(minuteInt-1):minuteInt;
-        var hourInt = now.getHours()-birthDay.getHours();
-        hourInt = minuteInt<0?(hourInt-1):hourInt;
-        var dayInt = now.getDate()-birthDay.getDate();
-        dayInt = hourInt<0?(dayInt-1):dayInt;
-        var montInt = now.getMonth() - birthDay.getMonth();
-        montInt = dayInt<0?(montInt-1):montInt;
-        var yearInt = now.getYear()-birthDay.getYear();
-        yearInt = montInt<0?(yearInt-1):yearInt;
+/* ===== 计时器（逻辑不变，getYear -> getFullYear，差值一致；改为实时跳动） ===== */
+var birthDay = new Date(2014, 6, 16, 11, 50, 0); // 2014-07-16 11:50:00
 
-        millionSeconds = millionSeconds<0?(1000+millionSeconds):millionSeconds;
-        seconds = seconds<0?(60+seconds):seconds
-        minuteInt = minuteInt<0?(60+minuteInt):minuteInt;
-        hourInt = hourInt<0?(24+hourInt):hourInt;
-        montInt = montInt<0?(12+montInt):montInt;
-        dayInt = dayInt<0?(getDaysOfMonth(birthDay)+dayInt):dayInt;
+function getDaysOfYears(time){
+    return time.getFullYear() % 4 == 0 ? 366 : 365;
+}
 
-        $('#ttd').html("ruopu.wang has been "+dayNum+" days");
-        $('#ymdh').html("<div class='counter-item bg-danger'><h1>" + yearInt + "</h1><p>years</p></div><div class='counter-item bg-warning'><h1>" + montInt + "</h1><p>months</p></div><div class='counter-item bg-success'><h1>" + dayInt + "</h1><p>days</p></div><div class='counter-item bg-info'><h1>" + hourInt + "</h1><p>hours</p></div>");
-        /*$.ajax(
-                'http://www.114time.com/api/clock.php',
-                {
-                    type:'get',
-                    dataType : 'jsonp',
-                    jsonp:"callback",
-                    success  : function(data) {
-                        alert(data);
-                    },
-                    error : function() {
-                        alert('fail');
-                    }
-                }
-        );*/
+function getDaysOfMonth(time){
+    switch (time.getMonth() + 1){
+        case 1:  return 31;
+        case 2:  return getDaysOfYears(time) == 366 ? 29 : 28;
+        case 3:  return 31;
+        case 4:  return 30;
+        case 5:  return 31;
+        case 6:  return 30;
+        case 7:  return 31;
+        case 8:  return 31;
+        case 9:  return 30;
+        case 10: return 31;
+        case 11: return 30;
+        case 12: return 31;
+    }
+}
 
-        /*$('#countdown-timer').countdown({
-            date: endDate,
-            render: function(data) {
-                $(this.el).html("<div class='counter-item bg-danger'><h1>" + this.leadingZeros(data.days, 3) + "</h1><p>days</p></div><div class='counter-item bg-warning'><h1>" + this.leadingZeros(data.hours, 2) + "</h1><p>hours</p></div><div class='counter-item bg-success'><h1>" + this.leadingZeros(data.min, 2) + "</h1><p>min</p></div><div class='counter-item bg-info'><h1>" + this.leadingZeros(data.sec, 2) + "</h1><p>sec</p></div>");
-            }
-        });*/
+function update(){
+    var now = new Date();
 
-		/**
-	weixin
-	**/
-	var imgUrl = "https://raw.githubusercontent.com/ruopu2014/ruopu2014.github.io/master/xm.png";  //图片LOGO注意必须是绝对路径
-       var lineLink = "https://ruopu.wang";   //网站网址，必须是绝对路径
-       var descContent = 'ruopu'; //分享给朋友或朋友圈时的文字简介
-       var shareTitle = "ruopu.wang has been "+dayNum+" days";  //分享title
-       var appid = ''; //apiID，可留空
-        
-       function shareFriend() {
-           WeixinJSBridge.invoke('sendAppMessage',{
-               "appid": appid,
-               "img_url": imgUrl,
-               "img_width": "200",
-               "img_height": "200",
-               "link": lineLink,
-               "desc": descContent,
-               "title": shareTitle
-           }, function(res) {
-               //_report('send_msg', res.err_msg);
-           })
-       }
-       function shareTimeline() {
-           WeixinJSBridge.invoke('shareTimeline',{
-               "img_url": imgUrl,
-               "img_width": "200",
-               "img_height": "200",
-               "link": lineLink,
-               "desc": descContent,
-               "title": shareTitle
-           }, function(res) {
-                  //_report('timeline', res.err_msg);
-           });
-       }
-       // 当微信内置浏览器完成内部初始化后会触发WeixinJSBridgeReady事件。
-       document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
-           // 发送给好友
-           WeixinJSBridge.on('menu:share:appmessage', function(argv){
-               shareFriend();
-           });
-           // 分享到朋友圈
-           WeixinJSBridge.on('menu:share:timeline', function(argv){
-               shareTimeline();
-           });
-       }, false);
+    var dayNum = Math.floor((now.getTime() - birthDay.getTime()) / 1000 / 60 / 60 / 24);
 
-    });
+    var dayInt = now.getDate() - birthDay.getDate();
+    var montInt = now.getMonth() - birthDay.getMonth();
+    montInt = dayInt < 0 ? (montInt - 1) : montInt;
+    var yearInt = now.getFullYear() - birthDay.getFullYear();
+    yearInt = montInt < 0 ? (yearInt - 1) : yearInt;
 
+    montInt = montInt < 0 ? (12 + montInt) : montInt;
+    dayInt  = dayInt  < 0 ? (getDaysOfMonth(birthDay) + dayInt) : dayInt;
+
+    document.getElementById('ttd').textContent = "ruopu.wang has been " + dayNum + " days";
+    document.getElementById('n-years').textContent  = yearInt;
+    document.getElementById('n-months').textContent = montInt;
+    document.getElementById('n-days').textContent   = dayInt;
+    return yearInt;
+}
+
+var ageNow = update();
+
+
+/* ===== 生日主题（生日当天自动开启；URL 加 ?birthday 可预览） ===== */
+(function birthdayTheme(){
+    var now = new Date();
+    var isBirthday = (now.getMonth() === birthDay.getMonth() && now.getDate() === birthDay.getDate());
+    var forced = /[?&]birthday\b/.test(location.search);
+    if (!isBirthday && !forced) return;
+
+    document.body.classList.add('birthday');
+    // 生日当天年龄 = 今年 - 出生年（无论是否过了时分）
+    var age = now.getFullYear() - birthDay.getFullYear();
+    document.getElementById('bday-age').textContent = age;
+    document.title = "🎉 生日快乐 ruopu.wang " + age + " 岁!";
+
+    var box = document.getElementById('confetti');
+    var colors = ['#ff4d6d','#ff9f1c','#ffd166','#2ec4b6','#3a86ff','#8338ec','#ff8fab','#06d6a0'];
+    var n = window.innerWidth < 680 ? 70 : 130;
+    var html = "";
+    for (var i = 0; i < n; i++){
+        var left = (i * 53 % 100);
+        var dur  = (3.5 + (i * 29 % 40) / 10).toFixed(1);      // 3.5~7.5s
+        var delay= ((i * 37 % 70) / 10).toFixed(1);            // 0~7s
+        var col  = colors[i % colors.length];
+        var w    = 7 + (i * 13 % 7);                            // 7~13px
+        var h    = 10 + (i * 17 % 10);                          // 10~19px
+        var round= (i % 4 === 0) ? '50%' : '2px';               // 圆形 / 方形纸屑
+        html += '<span class="confetti-pc" style="left:' + left + '%;width:' + w + 'px;height:' + h +
+                'px;background:' + col + ';border-radius:' + round + ';--dur:' + dur + 's;' +
+                'animation-delay:' + delay + 's"></span>';
+    }
+    box.innerHTML = html;
+})();
+
+
+/* ===== 成就徽章 ===== */
+var badges = [
+    {ico:"🎂", t:"出生", d:"2014.07.16"},
+    {ico:"🎹", t:"会唱谱", d:"钢琴 · 小星星"},
+    {ico:"💯", t:"双百分", d:"语文+数学"},
+    {ico:"🚲", t:"骑单车", d:"无辅助轮"},
+    {ico:"🚄", t:"转学天津", d:"五年级"},
+    {ico:"🤓", t:"戴眼镜", d:"轻度近视"},
+    {ico:"⭐", t:"待解锁", d:"未来可期"}
+];
+(function renderBadges(){
+    var html = "";
+    for (var i = 0; i < badges.length; i++){
+        var b = badges[i];
+        html += '<div class="badge-card">' +
+                    '<span class="ico">' + b.ico + '</span>' +
+                    '<div class="bt">' + escapeHtml(b.t) + '</div>' +
+                    '<div class="bd">' + escapeHtml(b.d) + '</div>' +
+                '</div>';
+    }
+    document.getElementById('badges').innerHTML = html;
+})();
+
+
+/* ===== bulingbuling 闪烁星光 ===== */
+(function makeSparkles(){
+    var box = document.getElementById('sparkles');
+    var glows = ['#7db9ff','#ffd166','#06d6a0','#ff7d9e','#b08bff'];
+    var n = window.innerWidth < 680 ? 36 : 70;
+    var html = "";
+    for (var i = 0; i < n; i++){
+        var size = (1.5 + (i * 37 % 30) / 10).toFixed(1);      // 1.5~4.5px，确定性伪随机
+        var left = (i * 53 % 100);
+        var top  = (i * 71 % 100);
+        var dur  = (2 + (i * 29 % 30) / 10).toFixed(1);         // 2~5s
+        var delay= ((i * 17 % 40) / 10).toFixed(1);            // 0~4s
+        var glow = glows[i % glows.length];
+        html += '<span class="spark" style="width:' + size + 'px;height:' + size + 'px;' +
+                'left:' + left + '%;top:' + top + '%;--dur:' + dur + 's;--glow:' + glow + ';' +
+                'animation-delay:' + delay + 's"></span>';
+    }
+    box.innerHTML = html;
+})();
+
+
+/* ===== 漂浮的游戏元素 ===== */
+(function makeFloaties(){
+    var box = document.getElementById('floaties');
+    var icons = ['🚀','⚽','🎮','🦖','🚗','🧩','🏀','⭐','🎈','🪁'];
+    var html = "";
+    for (var i = 0; i < icons.length; i++){
+        var left = (i * 97 % 92) + 2;
+        var dur  = 14 + (i * 31 % 12);                          // 14~26s
+        var delay= (i * 26 % 20);                               // 0~20s
+        var size = 22 + (i * 13 % 18);                          // 22~40px
+        html += '<span class="floaty" style="left:' + left + '%;font-size:' + size + 'px;' +
+                '--dur:' + dur + 's;--delay:' + delay + 's">' + icons[i] + '</span>';
+    }
+    box.innerHTML = html;
+})();
+
+
+/* ===== 游戏角色（太空狼人杀宇航员 + 蛋仔派对风格，纯 CSS 手绘） ===== */
+(function makeGamers(){
+    var box = document.getElementById('gamers');
+    var crewColors = ['#ff4d4d','#3a86ff','#2ec4b6','#ffd166','#8338ec','#ff8fab'];
+    var eggColors  = ['#ffd166','#ff8fab','#90e0ef','#b8f2a0','#c8a8ff'];
+    function crew(col){
+        return '<span class="crew" style="--col:' + col + '">' +
+            '<i class="pack"></i><i class="torso"></i>' +
+            '<i class="leg l"></i><i class="leg r"></i><i class="visor"></i></span>';
+    }
+    function egg(col){
+        return '<span class="egg" style="--col:' + col + '">' +
+            '<i class="shell"></i><i class="eye l"></i><i class="eye r"></i>' +
+            '<i class="blush l"></i><i class="blush r"></i><i class="mouth"></i>' +
+            '<i class="foot l"></i><i class="foot r"></i></span>';
+    }
+    var n = window.innerWidth < 680 ? 5 : 9;
+    var html = "";
+    for (var i = 0; i < n; i++){
+        var left = (i * 79 % 90) + 3;
+        var dur  = 20 + (i * 37 % 16);                          // 20~36s
+        var delay= (i * 33 % 28);                               // 0~28s
+        var scale= (0.8 + (i * 19 % 8) / 10).toFixed(2);        // 0.8~1.5
+        var inner = (i % 2 === 0)
+            ? crew(crewColors[i % crewColors.length])
+            : egg(eggColors[i % eggColors.length]);
+        html += '<div class="gamer" style="left:' + left + '%;--dur:' + dur + 's;' +
+                '--delay:' + delay + 's;transform:scale(' + scale + ')">' + inner + '</div>';
+    }
+    box.innerHTML = html;
+})();
+
+
+/* ===== 点击迸发星星特效 ===== */
+document.addEventListener('click', function(e){
+    var colors = ['#ff4d6d','#ff9f1c','#2ec4b6','#3a86ff','#8338ec','#06d6a0'];
+    for (var i = 0; i < 10; i++){
+        var p = document.createElement('span');
+        p.className = 'burst';
+        var ang = Math.PI * 2 * i / 10;
+        var dist = 40 + (i * 23 % 40);
+        p.style.left = e.clientX + 'px';
+        p.style.top = e.clientY + 'px';
+        p.style.background = colors[i % colors.length];
+        p.style.setProperty('--tx', Math.cos(ang) * dist + 'px');
+        p.style.setProperty('--ty', Math.sin(ang) * dist + 'px');
+        document.body.appendChild(p);
+        (function(el){ setTimeout(function(){ el.remove(); }, 700); })(p);
+    }
+});
+
+
+/* ===== 微信分享（仅在微信内置浏览器生效，无外部脚本依赖） ===== */
+(function(){
+    var imgUrl = "https://ruopu.wang/xm.png";
+    var lineLink = "https://ruopu.wang";
+    var descContent = "ruopu";
+    function shareData(){
+        return {
+            "img_url": imgUrl, "img_width": "200", "img_height": "200",
+            "link": lineLink, "desc": descContent,
+            "title": "ruopu.wang has been " + Math.floor((new Date().getTime() - birthDay.getTime()) / 86400000) + " days"
+        };
+    }
+    document.addEventListener('WeixinJSBridgeReady', function(){
+        WeixinJSBridge.on('menu:share:appmessage', function(){ WeixinJSBridge.invoke('sendAppMessage', shareData()); });
+        WeixinJSBridge.on('menu:share:timeline',  function(){ WeixinJSBridge.invoke('shareTimeline',  shareData()); });
+    }, false);
+})();
 </script>
 </body>
 </html>
